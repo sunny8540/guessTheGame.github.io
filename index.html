@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+
+        }
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: lightgoldenrodyellow;
+        }
+        .header{
+            width: 100vw;
+            height:5rem;
+            background-color: lightpink;
+        }
+        .header p {
+            text-align: center;
+            line-height: 5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: 0rem 0rem 1rem red;
+            color: red;
+        }
+        .rule{
+            text-align: center;
+            padding: 3rem 0rem;
+            font-size: 2rem;
+            text-shadow: 0rem 0rem 1rem yellow;
+            color: blueviolet;
+        }
+        .r{
+            /* position: absolute; */
+        }
+        input{  
+            font-size: 2rem;
+            padding: 1rem;
+            margin-left :20rem;
+            align-items: center;
+        }
+        .result{
+            width: 2rem;
+            height: 3rem;
+            border: 1p solid black;
+        }
+
+
+        button{
+            cursor: pointer;
+            height: 3rem;
+            width: 8rem;
+            border: none;
+            font-size: 1.1rem;
+            background-color: lightcoral;
+                margin-left: 2rem;
+                border-radius: .4rem;
+        }
+        button:hover{
+            transition: 400ms;
+            border: none;
+            background-color: lightgrey;
+        }
+        .main1{
+            text-align: center;
+            margin-top: 18rem;
+            font-size: 6rem;
+            font-weight: 700;
+            color: lightseagreen;
+            display: none;
+            margin-left: 22rem;
+            position: absolute;
+        }
+        .re{
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: red;
+            text-shadow: orem 0rem 1rem red;
+        }
+        .res{
+            width: 20rem;
+            height: 3rem;
+            border: 1px solid #ddd;
+            background-color: #ddd;
+            color: black;
+            font-size: 1.8rem;
+            margin-left: 22rem;
+            display: none;
+            text-align: center;
+            line-height: 3rem;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div class="main1">Checking Result </div>
+    <div class="main">
+        <div class="header"><p>GUESS THE NUMBER GAME</p></div>
+        <div class="rule">This game is Totally on luck Do not panic when you guess wrong</div>
+      <div class="r">
+        <input class="in" type="number" placeholder="Enter your number"><button onclick="guess()">click here</button>
+        
+    </div>
+    <div class="result"></div>
+    <div class="res"></div>
+    <div class="re"></div>
+</div>
+    <script>
+   function guess(){
+       var a=Math.floor(Math.random()*11);
+       var i=document.querySelector(".in").value;
+       
+       if(i==false){
+           alert("plz enter a number");
+        } 
+        else if(a==i){
+            document.querySelector(".in").style.marginTop="6rem";
+            document.querySelector(".result").innerHTML="you won";
+            
+        }
+        else{
+            document.querySelector(".main").style.opacity="0.5";
+            document.querySelector(".main1").style.display="block";
+            setInterval(() => {
+                document.querySelector(".main1").style.display="none";
+                document.querySelector(".main").style.opacity="1";
+
+                document.querySelector(".re").innerHTML="wrong guess try again (Refresh Page)";
+                document.querySelector(".res").innerHTML="Right number is :-"+a;
+                document.querySelector(".res").style.display="block";
+
+            },3000 );
+    }
+   }   
+    </script>
+</body>
+</html>
